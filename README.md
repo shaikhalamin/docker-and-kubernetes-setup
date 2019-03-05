@@ -1,24 +1,27 @@
-//Docker Project Setup with laravel
+#Docker Project Setup with laravel
 //Setup and configure docker first
 
+```javascript
 
 //docker compose install and configure
-//Step -->1
+Step -->1
 sudo curl -L "https://github.com/docker/compose/releases/download/1.23.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 
-//Step -->2
+Step -->2
 sudo chmod +x /usr/local/bin/docker-compose
 
-
-
+```
 
 1. composer create-project --prefer-dist laravel/laravel laravel-app "5.7.*"
 
 2. cd laravel-app
 
+```javascript
 //Next, use Docker's composer image to mount the directories that you will need for your Laravel project and avoid the overhead of installing Composer globally:
  
 3. docker run --rm -v $(pwd):/app composer install
+
+```
 
 4 cd ..
 

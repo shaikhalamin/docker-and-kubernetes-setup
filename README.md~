@@ -26,79 +26,83 @@ sudo chmod +x /usr/local/bin/docker-compose
 
 5. sudo chown -R $USER:$USER laravel-app
 
+```javascript
+
 6.nano laravel-app/docker-compose.yml
 
 7.//put the following content for yml file
 
-version: '3'
-services:
+	version: '3'
+	services:
 
-  #PHP Service
-  app:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    image: digitalocean.com/php
-    container_name: app
-    restart: unless-stopped
-    tty: true
-    environment:
-      SERVICE_NAME: app
-      SERVICE_TAGS: dev
-    working_dir: /var/www
-    volumes:
-      - ./:/var/www
-      - ./php/local.ini:/usr/local/etc/php/conf.d/local.ini
-    networks:
-      - app-network
+	  #PHP Service
+	  app:
+	    build:
+	      context: .
+	      dockerfile: Dockerfile
+	    image: digitalocean.com/php
+	    container_name: app
+	    restart: unless-stopped
+	    tty: true
+	    environment:
+	      SERVICE_NAME: app
+	      SERVICE_TAGS: dev
+	    working_dir: /var/www
+	    volumes:
+	      - ./:/var/www
+	      - ./php/local.ini:/usr/local/etc/php/conf.d/local.ini
+	    networks:
+	      - app-network
 
-  #Nginx Service
-  webserver:
-    image: nginx:alpine
-    container_name: webserver
-    restart: unless-stopped
-    tty: true
-    ports:
-      - "8080:80"
-      - "443:443"
-    volumes:
-      - ./:/var/www
-      - ./nginx/conf.d/:/etc/nginx/conf.d/
-    networks:
-      - app-network
+	  #Nginx Service
+	  webserver:
+	    image: nginx:alpine
+	    container_name: webserver
+	    restart: unless-stopped
+	    tty: true
+	    ports:
+	      - "8080:80"
+	      - "443:443"
+	    volumes:
+	      - ./:/var/www
+	      - ./nginx/conf.d/:/etc/nginx/conf.d/
+	    networks:
+	      - app-network
 
-  #MySQL Service
-  db:
-    image: mysql:5.7.22
-    container_name: db
-    restart: unless-stopped
-    tty: true
-    ports:
-      - "3307:3306"
-    environment:
-      MYSQL_DATABASE: laravel
-      MYSQL_ROOT_PASSWORD: xxx423401
-      SERVICE_TAGS: dev
-      SERVICE_NAME: mysql
-    volumes:
-      - dbdata:/var/lib/mysql/
-      - ./mysql/my.cnf:/etc/mysql/my.cnf
-    networks:
-      - app-network
+	  #MySQL Service
+	  db:
+	    image: mysql:5.7.22
+	    container_name: db
+	    restart: unless-stopped
+	    tty: true
+	    ports:
+	      - "3307:3306"
+	    environment:
+	      MYSQL_DATABASE: laravel
+	      MYSQL_ROOT_PASSWORD: xxx423401
+	      SERVICE_TAGS: dev
+	      SERVICE_NAME: mysql
+	    volumes:
+	      - dbdata:/var/lib/mysql/
+	      - ./mysql/my.cnf:/etc/mysql/my.cnf
+	    networks:
+	      - app-network
 
-#Docker Networks
-networks:
-  app-network:
-    driver: bridge
-#Volumes
-volumes:
-  dbdata:
-    driver: local
+	#Docker Networks
+	networks:
+	  app-network:
+	    driver: bridge
+	#Volumes
+	volumes:
+	  dbdata:
+	    driver: local
 
+```
 
+```javascript
 8. nano laravel-app/Dockerfile
 
-9.// put the following chnages in the dockrerfile
+9. put the following chnages in the dockrerfile
 
 
 	FROM php:7.2-fpm
@@ -152,21 +156,29 @@ volumes:
 	EXPOSE 9000
 	CMD ["php-fpm"]
 
+```
 
 10. mkdir laravel-app/php
 
+```javascript
+
 11. nano laravel-app/php/local.ini
 
-12. //put the following ini changes in the .ini file
+12. put the following ini changes in the .ini file
 
-upload_max_filesize=40M
-post_max_size=40M
+	upload_max_filesize=40M
+	post_max_size=40M
+
+```
 
 13. mkdir -p laravel-app/nginx/conf.d
 
+
+```javascript
 14. nano laravel-app/nginx/conf.d/app.conf
 
-15.//put nginx chnages in the .conf file
+15.put nginx chnages in the .conf file
+
 
 	server {
 	    listen 80;
@@ -188,16 +200,20 @@ post_max_size=40M
 		gzip_static on;
 	    }
 	}
+```
 
 16. mkdir laravel-app/mysql
 
 17. nano laravel-app/mysql/my.cnf
 
-18. //put mysql configuration chnages in the .cnf file
+```php
+
+18. put mysql configuration chnages in the .cnf file
 
 	[mysqld]
 	general_log = 1
 	general_log_file = /var/lib/mysql/general.log
+```
 
 19.docker-compose up -d
 
