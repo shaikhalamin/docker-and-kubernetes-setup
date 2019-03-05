@@ -12,9 +12,12 @@ sudo chmod +x /usr/local/bin/docker-compose
 
 ```
 
+```javascript
 1. composer create-project --prefer-dist laravel/laravel laravel-app "5.7.*"
 
 2. cd laravel-app
+
+```
 
 ```javascript
 //Next, use Docker's composer image to mount the directories that you will need for your Laravel project and avoid the overhead of installing Composer globally:
@@ -23,13 +26,14 @@ sudo chmod +x /usr/local/bin/docker-compose
 
 ```
 
+
+```javascript
+
 4 cd ..
 
 // set permissions on the project directory so that it is owned by your non-root user:
 
 5. sudo chown -R $USER:$USER laravel-app
-
-```javascript
 
 6.nano laravel-app/docker-compose.yml
 
@@ -174,10 +178,9 @@ sudo chmod +x /usr/local/bin/docker-compose
 
 ```
 
-13. mkdir -p laravel-app/nginx/conf.d
-
-
 ```javascript
+
+13. mkdir -p laravel-app/nginx/conf.d
 14. nano laravel-app/nginx/conf.d/app.conf
 
 15.put nginx chnages in the .conf file
@@ -205,11 +208,13 @@ sudo chmod +x /usr/local/bin/docker-compose
 	}
 ```
 
+
+
+```php
+
 16. mkdir laravel-app/mysql
 
 17. nano laravel-app/mysql/my.cnf
-
-```php
 
 18. put mysql configuration chnages in the .cnf file
 

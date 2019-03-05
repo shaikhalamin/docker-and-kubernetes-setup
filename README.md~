@@ -1,8 +1,8 @@
 #Docker Project Setup with laravel
-//Setup and configure docker first
+
 
 ```javascript
-
+//Setup and configure docker first
 //docker compose install and configure
 Step -->1
 sudo curl -L "https://github.com/docker/compose/releases/download/1.23.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
