@@ -2,12 +2,26 @@
 
 
 ```javascript
-//Setup and configure docker first
-//docker compose install and configure
-Step -->1
-sudo curl -L "https://github.com/docker/compose/releases/download/1.23.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+//Setup and configure docker
+sudo apt-get install curl apt-transport-https ca-certificates software-properties-common
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+sudo apt-get update
+sudo apt-get install docker-ce
 
-Step -->2
+sudo service docker status
+
+//add logged in user in docker user group
+sudo usermod -a -G docker $USER
+
+//lock your screen and logged in with password
+
+sudo chmod 777 /var/run/docker.sock
+
+
+//docker compose install and configure
+sudo curl -L "https://github.com/docker/compose/releases/download/1.24.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+
 sudo chmod +x /usr/local/bin/docker-compose
 
 ```
