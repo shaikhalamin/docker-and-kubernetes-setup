@@ -1,15 +1,16 @@
-#Docker, docker-compose and Kubernetes configure in ubuntu 
+##Docker, docker-compose and Kubernetes configure in ubuntu 
 
 
+##Docker easy install
 ```javascript
-    Docker easy install
     #https://get.docker.com/
     curl -fsSL https://get.docker.com -o get-docker.sh
     sh get-docker.sh
 ```
 
+##Setup and configure docker manually
 ```javascript
-//Setup and configure docker manually
+
 sudo apt install curl apt-transport-https ca-certificates software-properties-common
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
@@ -25,15 +26,16 @@ sudo usermod -a -G docker $USER
 
 sudo chmod 777 /var/run/docker.sock
 
+```
 
-//docker compose install and configure
+##Docker compose install and configure
+```
 #https://docs.docker.com/compose/install/
 sudo curl -L "https://github.com/docker/compose/releases/download/v2.3.3/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
-
 ```
 
-#Install and configure kubernetes for local maching with minikube and docker
+##Install and configure kubernetes for local maching with minikube and docker
 ```javascript
 
 // First intall docker and docker-compose first
