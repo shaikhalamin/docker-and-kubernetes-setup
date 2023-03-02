@@ -33,6 +33,32 @@ sudo chmod +x /usr/local/bin/docker-compose
 
 ```
 
+#Install and configure kubernetes for local maching with minikube and docker
+```javascript
+
+// First intall docker and docker-compose first
+
+// Then follow the following command step by step
+
+// To download and install the minikube run the following command
+wget https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+sudo chmod +x minikube-linux-amd64
+sudo mv minikube-linux-amd64 /usr/local/bin/minikube
+minikube version
+
+
+// To download and install the kubectl run the following command
+curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl
+sudo chmod +x ./kubectl
+sudo mv ./kubectl /usr/local/bin/kubectl
+kubectl version -o json  --client
+
+// start minikube with docker engine
+minikube start --driver=docker
+kubectl cluster-info
+
+```
+
 ```javascript
 1. composer create-project --prefer-dist laravel/laravel laravel-app "5.7.*"
 
