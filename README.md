@@ -1,4 +1,4 @@
-#Docker Project Setup with laravel
+#Docker, docker-compose and Kubernetes configure in ubuntu 
 
 
 ```javascript
@@ -9,7 +9,7 @@
 ```
 
 ```javascript
-//Setup and configure docker
+//Setup and configure docker manually
 sudo apt install curl apt-transport-https ca-certificates software-properties-common
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
