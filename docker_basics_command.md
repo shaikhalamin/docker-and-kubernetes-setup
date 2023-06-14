@@ -1,3 +1,5 @@
+```javascript
+
 //show all created docker images
 docker images
 
@@ -57,3 +59,5 @@ docker-compose up -d --scale nest_app=10
 
 //when working on local machine and editing not working for docker container then run below command
 sudo chown -R shaikhalamin laravel-microservice-admin-rmqp/
+
+```
