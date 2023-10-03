@@ -6,6 +6,9 @@ docker images
 //remove docker images
 docker rmi {id}
 
+// docker force remove image
+ docker rmi --force a08278fcaefe
+
 //show all running stopped container
 docker ps
 
