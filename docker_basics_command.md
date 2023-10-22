@@ -36,6 +36,9 @@ docker-compose down
 //stop all container detach volume
 docker-compose down -v
 
+//stop all containers with misconfiguration
+docker-compose down --remove-orphans
+
 //ssh to docker container from direct image like mysql
 docker exec -it db40fd416dd5 bash
 
