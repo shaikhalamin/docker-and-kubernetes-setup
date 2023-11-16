@@ -74,7 +74,7 @@ kubectl cluster-info
 3. docker run --rm -v $(pwd):/app composer install
 
 ```
-
+## Dockerise laravel projects
 
 ```javascript
 
